@@ -150,7 +150,7 @@ public class ImageFont {
 	 * Tile ID constants                                                              *
 	 * ------------------------------------------------------------------------------ */
 	public static final int T_BLANK = 0;
-	public static final int T_SIMLEY = 1;
+	public static final int T_SMILEY = 1;
 	public static final int T_INVERTED_SMILEY = 2;
 	public static final int T_HEART = 3;
 	public static final int T_DIAMOND = 4;
@@ -181,4 +181,11 @@ public class ImageFont {
 	public static final int T_LEFT_AND_RIGHT_ARROW = 29;
 	public static final int T_UP_TRIANGLE = 30;
 	public static final int T_DOWN_TRIANGLE = 31;
+
+	public static final int T_VERT_BAR = 179;
+	public static final int T_UP_RIGHT_CORNER = 191;
+	public static final int T_BOT_LEFT_CORNER = 192;
+	public static final int T_HORIZONTAL_BAR = 196;
+	public static final int T_BOT_RIGHT_CORNER = 217;
+	public static final int T_UP_LEFT_CORNER = 218;
 }
