@@ -12,7 +12,7 @@ public class OneChar extends Component {
 	ImageFont imageF;
 
 	public void paint(Graphics g) {
-		imageF.drawTileNum(imageF.T_UP_TRIANGLE, 0, 0, g);
+		imageF.drawTileNum(ImageFont.T_UP_TRIANGLE, 0, 0, g);
 	}
 
 	public OneChar() {

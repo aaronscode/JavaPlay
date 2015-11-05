@@ -10,6 +10,7 @@ public class StaticTileTextBox extends TileTextBox {
 	}
 
 	public void paint(Graphics g) {
+		super.paint(g);
 		imf.drawStringC(text, upperLeft.x, upperLeft.y, Color.RED, g);
 	}
 }
