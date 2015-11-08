@@ -6,31 +6,40 @@ public class TileUIComponent {
 	
 	Point upperLeft, lowerRight; // the upper left and lower right hand corner cordinates
 
-	// TODO - change this to width and height in tiles
-	int height, width; // width and height in tiles of 
+	int height, width; // width and height in tiles 
+	int pixHeight, pixWidth; // width and height in pixels
 	int tw, th; // tile width and height in pixels
 
 	ImageFont imf;
 	TileBorderInfo border;
 
-	public TileUIComponent (int x, int y, int width, int height, ImageFont imf) {
-		this.upperLeft = new Point(x, y);
-		this.lowerRight = new Point(x + width, y + height);
+	public TileUIComponent (int x, int y, int width, int height, ImageFont imf, TileBorderInfo border) {
 		this.width = width;
 		this.height = height;
 
 		this.imf = imf;
 		this.tw = imf.tileWidth();
 		this.th = imf.tileHeight();
-		char[] corners = {'*', '*', '*', '*'};
-		char[] lineChars = {'-', '|', '-', '|'};
-		border = new TileBorderInfo(true, 6, 3, corners, lineChars);
+
+		this.pixWidth = width * this.tw;
+		this.pixHeight = height * this.th;
+
+		this.upperLeft = new Point(x, y);
+		this.lowerRight = new Point(x + pixWidth, y + pixHeight);
+
+		this.border = border;
 	}
 
 	protected void paint(Graphics g) {
-		imf.drawChar(border.corner(0), 0, 0, g);
-		imf.drawChar(border.corner(0), 0, 3*th, g);
-
+		// TODO draw borders accounting for margin
+		imf.drawChar(border.corner(0), upperLeft.x, upperLeft.y, g);
+		imf.drawChar(border.corner(1), lowerRight.x, upperLeft.y, g);
+		imf.drawChar(border.corner(2), lowerRight.x, lowerRight.y, g);
+		imf.drawChar(border.corner(2), upperLeft.x, lowerRight.y, g);
+		for(int i = 1; i < border.width(); i++) {
+			imf.drawChar(border.topLineChar(i-1), upperLeft.x + i*tw, upperLeft.y, g);
+			imf.drawChar(border.botLineChar(i-1), upperLeft.x + i*tw, lowerRight.y, g);
+		}
 	}
 
 	// Getter methods

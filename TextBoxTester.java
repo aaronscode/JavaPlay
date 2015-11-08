@@ -13,8 +13,13 @@ public class TextBoxTester extends Component {
 	ImageFont imageF;
 
 	public TextBoxTester() {
+		int width = 10;
+		int height = 5;
 		imageF = new ImageFont("CodePageTransparent.png");
-		sttb = new StaticTileTextBox(0, 0, 100, 100, imageF, "Hello!");
+		char[] corners = {'*', '*', '*', '*'};
+		char[] lineChars = {'-', '|', '-', '|'};
+		TileBorderInfo border = new TileBorderInfo(true, width, height, corners, lineChars);
+		sttb = new StaticTileTextBox(0, 0, width, height, imageF, "Hello!", border);
 	}
 
 	public void paint(Graphics g) {

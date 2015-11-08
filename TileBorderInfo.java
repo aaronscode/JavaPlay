@@ -7,7 +7,7 @@ public class TileBorderInfo {
 
 	boolean hasBorder =  false;
 	// TODO - Create Tile class to use instead of chars - can encode colors and whatnot
-	char[] corners; // the tile to use for the corner of the border
+	char[] corners; // the tile to use for the corner of the border - up left, up right, down right, down left
 	char[] topLine;
 	char[] botLine;
 	char[] rightLine;
@@ -39,8 +39,8 @@ public class TileBorderInfo {
 		this.rightLine = new char[height];
 		this.leftLine = new char[height];
 		Arrays.fill(this.topLine, lineChars[0]);
-		Arrays.fill(this.botLine, lineChars[1]);
-		Arrays.fill(this.rightLine, lineChars[2]);
+		Arrays.fill(this.botLine, lineChars[2]);
+		Arrays.fill(this.rightLine, lineChars[1]);
 		Arrays.fill(this.leftLine, lineChars[3]);
 		
 	}
@@ -56,8 +56,8 @@ public class TileBorderInfo {
 		this.rightLine = new char[height];
 		this.leftLine = new char[height];
 		Arrays.fill(this.topLine, lineChars[0]);
-		Arrays.fill(this.botLine, lineChars[1]);
-		Arrays.fill(this.rightLine, lineChars[2]);
+		Arrays.fill(this.botLine, lineChars[2]);
+		Arrays.fill(this.rightLine, lineChars[1]);
 		Arrays.fill(this.leftLine, lineChars[3]);
 		
 		Arrays.fill(this.innerPadding, innerPadding);
@@ -85,15 +85,31 @@ public class TileBorderInfo {
 		return this.topLine;
 	}
 
+	public char topLineChar(int i) {
+		return this.topLine[i];
+	}
+
 	public char[] botLine() {
 		return this.botLine;
+	}
+
+	public char botLineChar(int i) {
+		return this.botLine[i];
 	}
 
 	public char[] rightLine() {
 		return this.rightLine;
 	}
 
+	public char rightLineChar(int i) {
+		return this.rightLine[i];
+	}
+	
 	public char[] leftLine() {
 		return this.leftLine;
+	}
+
+	public char leftLineChar(int i) {
+		return this.leftLine[i];
 	}
 }
